@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "quadratic-function-project"
+version = "0.1.0"
+description = ""
+authors = ["Rafal <rafal.hyla@gmail.com>"]
+readme = "README.md"
+packages = [{include = "quadratic_function_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "3.2.10"
+django-bootstrap-form = "3.4"
+matplotlib = "3.6.3"
+pillow = "9.3.0"
+dj-static = "0.0.6"
+numpy = "1.24.1"
+fonttools = "4.38.0"
+packaging = "23.0"
+dj-database-url = "1.2.0"
+kiwisolver = "1.4.4"
+pyparsing = "3.0.9"
+python-dateutil = "2.8.2"
+python-decouple = "3.6"
+djangorestframework = "3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

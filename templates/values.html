@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load bootstrap %}
+{% block title %} {{ title_of_website }} {% endblock %}
+
+
+{% block site %}
+
+
+
+<a href="{% url 'function' %}" class="btn btn-success" style="margin-left:1em; margin-bottom:1em; margin-top:1em;">Cofnij </a>
+<div class="container-fluid">
+    <div class="row">
+
+
+<div class="col-6">
+    <nav class="navbar navbar-light bg-light" style="margin-right:1em; margin-bottom:1em;">
+  <span class="navbar-brand mb-0 h1">Znajdź największą i najniższą wartość funkcji</span>
+</nav>
+<div class="card" style="margin-right:1em; margin-bottom:1em;">
+  <div class="card-body">
+
+      <form method="post" enctype="multipart/form-data">
+          <input type="hidden" name="name" value="form_quad">
+      {% csrf_token %}
+    {{ form_quad|bootstrap }}
+
+            <button type="submit" class="btn btn-primary film-icon">Resolve</button>
+
+  </form>
+  </div>
+
+</div>
+
+{% if status %}
+    <div class="card" style="margin-right:1em;margin-bottom:1em;">
+    <h4> Najmniejsza wartość funkcji to: {{ min_val }}</h4><br>
+    <h4> Największa wartość funkcji to: {{ max_val }}</h4>
+
+  <div class="card-body">
+
+
+
+
+
+  </div>
+    </div>
+{% endif %}
+        </div>
+
+        </div>
+</div>
+{% endblock %}

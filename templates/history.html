@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load bootstrap %}
+{% block title %} {{ title_of_website }} {% endblock %}
+
+
+{% block site %}
+<a href="{% url 'function' %}" class="btn btn-success" style="margin-left:1em; margin-bottom:1em; margin-top:1em;">Cofnij </a>
+    <div class="col-6">
+    <nav class="navbar navbar-light bg-light" style="margin-right:1em; margin-bottom:1em;">
+  <span class="navbar-brand mb-0 h1">Historia</span>
+</nav>
+
+             <div class="card-body">
+             {% for quad_hist in quads_hist %}
+                 {% if quad_hist.private %}
+                 <a href="/media/{{ quad_hist.plot }}" >{{ quad_hist.example }}</a>&nbsp;<h8 style="color:Tomato;"><b>Wykres prywatny</b></h8>
+                 <form method="post">
+                    <input type="hidden" name="name" value="form_private {{quad_hist.id}}">
+                    {% csrf_token %}
+                     <button type="submit" class="btn btn-info btn-sm">Change to public</button>
+                 </form>
+
+                {% else %}
+                 <a href="/media/{{ quad_hist.plot }}" >{{ quad_hist.example }}</a>&nbsp;<h8 style="color:MediumSeaGreen;"><b>Wykres publiczny</b></h8><br>
+                 <form method="post">
+                    <input type="hidden" name="name" value="form_public {{quad_hist.id}}">
+                    {% csrf_token %}
+                     <button type="submit" class="btn btn-info btn-sm">Change to private</button>
+                 </form>
+                 {% endif %}
+                 <hr>
+             {% endfor %}
+                 </div>
+  </div>
+{% endblock %}
