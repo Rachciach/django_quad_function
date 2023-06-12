@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load bootstrap %}
+{% block title %} Rejestracja {% endblock %}
+
+{% block site %}
+<div class="card" style="width: 26em;">
+  <div class="card-body">
+    <h5 class="card-title">Zarejestruj sie</h5>
+    <form method="post">
+      {% csrf_token %}
+      {{ register_form|bootstrap }}
+      <button type="submit" class="btn btn-primary"> Zarejestruj <i class="fa-solid fa-right-to-bracket"></i></button>
+    </form>
+    <p class="text-center">Jeśli masz jusz konto, zaloguj sie <a href="{% url 'login' %}">Zaloguj</a> </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load bootstrap %}
+{% block title %} Zaloguj {% endblock %}
+
+{% block site %}
+<div class="card" style="width: 26em;">
+  <div class="card-body">
+    <h5 class="card-title">Zaloguj sie</h5>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|bootstrap }}
+      <button type="submit" class="btn btn-primary"> Zaloguj<i class="fa-solid fa-right-to-bracket"></i></button>
+    </form>
+  </div>
+</div>
+{% endblock %}
