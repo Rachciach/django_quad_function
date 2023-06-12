@@ -17,12 +17,12 @@ Główny widok aplikacji.
 ![image](https://github.com/Rachciach/django_quad_function/assets/73002723/9b56bccb-74a8-4cd2-b046-2498981e6dee)
 
 
-Na samym środku strony znajduje się formularz, gdzie należy wprowadzić dane. Formularz wymaga wypełnienia przynajmniej pola „example”, reszta jest domyślna. Formularz nie przyjmuje przykładów z dodatkowymi znakami typu „*”, tylko „3x^2+3x+1”. Białe znaki nie mają wpływu na wynik wykresu. 
+Na samym środku strony znajduje się formularz, gdzie należy wprowadzić dane. Formularz wymaga wypełnienia co najmniej pola „example”, reszta jest domyślna. Formularz nie przyjmuje przykładów z dodatkowymi znakami typu „*”, tylko „3x^2+3x+1”. Białe znaki nie mają wpływu na wynik wykresu. 
 
 
 Pola formularza:
 
-    • example – należy podać jakiś przykład „3x^2+3x+1”
+    • example – należy podać jakiś przykład, np „3x^2+3x+1”
       
     • start_x – początek zakresu od którego x ma się rysować wykres
       
