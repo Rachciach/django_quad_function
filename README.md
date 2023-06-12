@@ -1,5 +1,7 @@
 # django_quad_function
-Aplikacja tworzy wykresy funkcji kwadratowej / The application creates graphs of quadratic functions 
+Aplikacja tworzy wykresy funkcji kwadratowej / The application creates graphs of quadratic functions
+
+
 Strona powita nas takim komunikatem. Należy się najpierw zalogować. W przypadku, gdy użytkownik nie posiada konta, aplikacja umożliwia mu jego stworzenie. 
       
 Widok strony do logowania. 
@@ -11,6 +13,9 @@ Widok strony do rejestracji.
 ![image](https://github.com/Rachciach/django_quad_function/assets/73002723/cb682593-5e04-4eac-9289-9fa9f27b91d7)
 
 Główny widok aplikacji.
+
+![image](https://github.com/Rachciach/django_quad_function/assets/73002723/9b56bccb-74a8-4cd2-b046-2498981e6dee)
+
 
 Na samym środku strony znajduje się formularz, gdzie należy wprowadzić dane. Formularz wymaga wypełnienia przynajmniej pola „example”, reszta jest domyślna. Formularz nie przyjmuje przykładów z dodatkowymi znakami typu „*”, tylko „3x^2+3x+1”. Białe znaki nie mają wpływu na wynik wykresu. 
 
