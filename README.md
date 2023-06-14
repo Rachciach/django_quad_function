@@ -62,4 +62,4 @@ Po prawej stronie głównej strony aplikacji znajdują się dwa dodatkowe linki.
 
 Drugi link przeniesienie nas do podstrony, gdzie będziemy mogli wyliczyć największą i najmniejszą wartość funkcji dla danego zakresu. 
 
-![image](https://github.com/Rachciach/django_quad_function/assets/73002723/371ffda3-2b85-45d0-8e4c-d7ebcd732921)
+![image](https://github.com/Rachciach/django_quad_function/assets/73002723/b954807d-ab2b-4940-a104-dcc237aeb7b7)
