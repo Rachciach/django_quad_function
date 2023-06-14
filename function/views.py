@@ -242,7 +242,7 @@ def function(request):
 
 
 
-        except (UnboundLocalError):
+        except (UnboundLocalError, IndexError):
             messages.error(request, "W Example został uzyty niedozwolony znak. Proszę spróbować użyć formatu np. 3x^2+2x+1, bez znaku mnożenia *", extra_tags="example")
 
         except TypeError:
