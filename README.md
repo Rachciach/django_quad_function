@@ -38,9 +38,9 @@ Pola formularza:
 
     • example – należy podać jakiś przykład, np „3x^2+3x+1”
       
-    • start_x – początek zakresu od którego x ma się rysować wykres
+    • start_x – początek zakresu od którego x ma się rysować funkcja
       
-    • end_x – koniec zakresu do którego x ma się rysować wykres
+    • end_x – koniec zakresu do którego x ma się rysować funkcja
       
     • range_plot – co jaką wartość ma być rysowany punkt dla danego zakresu
       
