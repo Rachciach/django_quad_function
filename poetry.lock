@@ -163,6 +163,30 @@ files = [
 django = ">=1.5"
 
 [[package]]
+name = "django-rest"
+version = "0.8.7"
+description = "Tiny, lightweight, blazing fast REST library for django"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, <4"
+files = [
+    {file = "django-rest-0.8.7.tar.gz", hash = "sha256:24a0eca6aa53864affcab5a880173f701e5387ad4e5885e12c81184432d6e15b"},
+]
+
+[package.dependencies]
+django = ">=1.11"
+six = "*"
+
+[[package]]
+name = "django-restframework"
+version = "0.0.1"
+description = "django-restframework"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-restframework-0.0.1.tar.gz", hash = "sha256:2bec9265463693ada558ad9a58c31f6f3de005a932fbfeaadf983c5c9f3b7058"},
+]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -567,4 +591,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c4bb6b0f6d5a0759a46f64706436a2f514b07c4674f6d07b746c6affc9f54df3"
+content-hash = "3810d1cac16c528bb28e53ae6e8df86bb229703a4fba30a63bad95a342292972"

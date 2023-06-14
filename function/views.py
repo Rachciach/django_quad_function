@@ -26,11 +26,11 @@ def prepare(example: str):
         if_x = False
         a_b_c = []
         count_minus = 0
-        prepare = example.replace(" ", "").lower().replace("x^2", "&1").replace("x", "&1").replace("+", "&+&") \
+        prepare = example.replace(" ", "").lower().replace("x^2", "&1").replace("x", "&&1").replace("+", "&+&") \
             .replace("-", "&-&").replace("(", "&(&").replace(")", "&)&").replace("(", "").replace(")", "")
 
 
-        if len(prepare) > 6 and "&1" in prepare[4:]: #sprwadza czy jest wyrazenie typu x^2+x czy x^1+1
+        if len(prepare) > 6 and "&&1" in prepare[4:]: #sprwadza czy jest wyrazenie typu x^2+x czy x^1+1
             if_x = True
 
 
@@ -78,6 +78,7 @@ def prepare(example: str):
                 a_b_c.append(int(func_y_tmp[i + 1]))
             elif func_y_tmp[i] == "-" and func_y_tmp[i + 1].isdigit():
                 a_b_c.append(-1 * int(func_y_tmp[i + 1]))
+
         return a_b_c, if_x
 
     else:
@@ -218,6 +219,11 @@ def function(request):
                     delta = - 4 * result[0][0] * result[0][1]
                     q = (-1*(delta))/(4*result[0][0])
 
+                elif (len(result[0]) == 2 and result[1] == True):
+                    p = (-1 * (result[0][1])) / (2 * result[0][0])
+                    delta = (result[0][1]**2 )- 4 * result[0][0]
+                    q = (-1 * (delta)) / (4 * result[0][0])
+
                 else:
                     p = (-1 * (result[0][1])) / (2 * result[0][0])
                     delta = (result[0][1]**2 )- 4 * result[0][0] * result[0][2]
@@ -236,7 +242,7 @@ def function(request):
 
 
 
-        except UnboundLocalError:
+        except (UnboundLocalError):
             messages.error(request, "W Example został uzyty niedozwolony znak. Proszę spróbować użyć formatu np. 3x^2+2x+1, bez znaku mnożenia *", extra_tags="example")
 
         except TypeError:
@@ -276,39 +282,46 @@ Funkcja umożliwa obliczenie największej i najmniejszej wartości funkcji kwadr
 """
 def values(request):
     quads = QuadFunction.objects.filter(user=request.user).order_by('-date')
-    form_quad = QuadForm2(initial={"example": quads[0].example, "start_x": quads[0].start_x, "end_x": quads[0].end_x}, instance=QuadFunction)
-    status  =False
-    max_val = None
-    min_val = None
-    if request.method == "POST":
-        form_quad = QuadForm2(request.POST)
-        if form_quad.is_valid():
-            status = True
-            example = request.POST['example']
-            result = prepare(example)
-            if (len(result[0]) == 2 and result[1] == False) or len(result[0]) == 1:
-                p = 0
-            else:
-                p = -1*(result[0][1]/(2*result[0][0]))
+    if quads.exists():
+        form_quad = QuadForm2(initial={"example": quads[0].example, "start_x": quads[0].start_x, "end_x": quads[0].end_x}, instance=QuadFunction)
+        status  =False
+        max_val = None
+        min_val = None
+        max_x = None
+        min_x = None
+        if request.method == "POST":
+            form_quad = QuadForm2(request.POST)
+            if form_quad.is_valid():
+                status = True
+                example = request.POST['example']
+                result = prepare(example)
+                if (len(result[0]) == 2 and result[1] == False) or len(result[0]) == 1:
+                    p = 0
 
-            start_x = int(request.POST['start_x'])
-            end_x = int(request.POST['end_x'])
-            rang_x = range(start_x,end_x)
+                else:
+                    p = -1*(result[0][1]/(2*result[0][0]))
 
-            y1 = findQuad(prepare(example), x=start_x)
-            y2 = findQuad(prepare(example), x=end_x)
+                start_x = int(request.POST['start_x'])
+                end_x = int(request.POST['end_x'])
+                rang_x = range(start_x,end_x)
 
-            if int(p) in rang_x:
-                y_p = findQuad(prepare(example), x=p)
-            else:
-                y_p = None
+                y1 = findQuad(prepare(example), x=start_x)
+                y2 = findQuad(prepare(example), x=end_x)
 
-            max_val = max((y1, y2, y_p))
-            min_val = min((y1, y2, y_p))
+                if int(p) in rang_x:
+                    y_p = findQuad(prepare(example), x=p)
+                else:
+                    y_p = None
+                dict_val = {y1:start_x, y2:end_x, y_p:p}
+                max_val = max((y1, y2, y_p))
+                min_val = min((y1, y2, y_p))
+                min_x = dict_val[min_val]
+                max_x = dict_val[max_val]
 
+    else:
+        return HttpResponse("<h1>Jeszcze nie ma w Bazie dancyh żadnych wartości</h1>")
 
-    return render(request, 'values.html', {"title_of_website": 'Values', 'form_quad': form_quad,
-                                              "status": status, "max_val":max_val, "min_val":min_val})
+    return render(request, 'values.html', {"title_of_website": 'Values', 'form_quad': form_quad, "status": status, "max_val":max_val, "max_x":max_x, "min_val":min_val, "min_x":min_x})
 
 
 
