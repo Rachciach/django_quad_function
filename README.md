@@ -1,18 +1,20 @@
 # django_quad_function
 Aplikacja tworzy wykresy funkcji kwadratowej / The application creates graphs of quadratic functions
 
-Aplikacja używa poetry, więc aby z tego skorzystać nalezy najpierw zainstalować te narzędzie.
+# Instrukcja zainstalowania aplikacji
 
-1. Instalujemy poetry na naszym komupetzrze według instrukcji: https://python-poetry.org/docs/
-2. Po instalacji należy sprawdzić komendą w konsoli (poetry --version) czy program jest wykrywany na naszym komputerze, jeśli nie, nalezy dodać ściężkę do programu wg. instrukcji w doukentacji.  
-3. Klonujemy repozytorium do dowolnego folderu za pomoca: git clone https://github.com/Rachciach/django_quad_function
-4. Wchodzimy w folder projektu, który został skolnowany z repozytorium.
-5. Następnie uruchamiamy komende: poetry install. Poetry powinno utworzyć środowisko wirtualne wraz z potrzebnymi paczkami użytych w projekcie. 
-6. Następnie w konsoli, w folderze projektu wpisujemy kolejną komende: poetry run python manage.py migrate
-7. Ostatni krok to uruchomienia serwera aplikacji:  poetry run python manage.py runserver. Aplikacja domyślnie uzywania używa serwera na localhost z portem 8000: [https://127.0.0.1/8000](http://127.0.0.1:8000/)
+Aplikacja używa poetry, więc aby z tej opcji skorzystać nalezy najpierw zainstalować te narzędzie.
+
+1. Instalujemy poetry na naszym komputerze według instrukcji: https://python-poetry.org/docs/
+2. Po instalacji należy sprawdzić komendą w konsoli (poetry --version), czy program jest wykrywany na naszym komputerze. Jeśli nie, nalezy dodać ścieżkę do programu wg. instrukcji w doukentacji.  
+3. Następnie klonujemy repozytorium do dowolnego folderu za pomoca: git clone https://github.com/Rachciach/django_quad_function
+4. Wchodzimy w głowny folder projektu, który został skolnowany z repozytorium. Tak, aby byc w miejscu gdzie znajduje się plik manage.py. 
+5. Następnie uruchamiamy komende: poetry install. Poetry powinno utworzyć środowisko wirtualne wraz z potrzebnymi paczkami użytymi w projekcie. 
+6. Następnie w konsoli, w folderze projektu, wpisujemy kolejną komende: poetry run python manage.py migrate
+7. Ostatni krok to uruchomienia serwera webowego:  poetry run python manage.py runserver. Aplikacja domyślnie uzywania używa serwera localhost z portem 8000: [https://127.0.0.1/8000](http://127.0.0.1:8000/)
 8. Należy najpierw się zarejestrować przd pierwszym użciem aplikacji. Po wejściu w link http://127.0.0.1:8000/ należy kliknąć przycisk "Register".
 
-
+# Instrukcja obsługi aplikacji
 
 Strona powita nas takim komunikatem. Należy się najpierw zalogować. W przypadku, gdy użytkownik nie posiada konta, aplikacja umożliwia mu jego stworzenie. 
       
